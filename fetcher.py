@@ -136,6 +136,10 @@ def discover_feed_url(source: dict) -> str | None:
     if source.get("feed_url"):
         return source["feed_url"]
 
+    # If html_fallback_url is set, skip discovery — we know there's no RSS
+    if source.get("html_fallback_url"):
+        return None
+
     if src_type == "substack":
         return url + "/feed"
 
@@ -396,7 +400,7 @@ def main() -> None:
         conn.commit()
 
         log.info("  New items: %d", new_count)
-        time.sleep(0.5)  # Be polite between sources
+        time.sleep(0.2)  # Brief pause between sources
 
     log.info("=== Fetcher done: %d new items ===", total_new)
     conn.close()
