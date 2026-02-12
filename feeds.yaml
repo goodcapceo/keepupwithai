@@ -1,0 +1,176 @@
+sources:
+  # Blogs & Newsletters
+  - name: Anthropic
+    url: https://www.anthropic.com/
+    type: site
+    html_fallback_url: https://www.anthropic.com/news
+
+  - name: Sebastian Raschka
+    url: https://www.svpino.com/
+    type: site
+
+  - name: Allie K. Miller
+    url: https://www.alliekmiller.com/
+    type: site
+    html_fallback_url: https://www.alliekmiller.com/blog
+
+  - name: Sabrina Ramonov (Blog)
+    url: https://www.sabrina.dev/
+    type: site
+
+  - name: Lilian Weng
+    url: https://lilianweng.github.io/
+    type: site
+
+  - name: Andrej Karpathy (Blog)
+    url: https://karpathy.ai/
+    type: site
+    feed_url: https://karpathy.github.io/feed.xml
+
+  - name: Boris Cherny
+    url: https://borischerny.com/
+    type: site
+
+  - name: The Vibe Marketer
+    url: https://www.thevibemarketer.com/
+    type: site
+    html_fallback_url: https://www.thevibemarketer.com/blog
+
+  - name: Developing Dev
+    url: https://www.developing.dev/
+    type: site
+
+  - name: Social Growth Engineers
+    url: https://www.socialgrowthengineers.com/
+    type: site
+
+  - name: Thariq
+    url: https://www.thariq.io/
+    type: site
+
+  - name: Alex Finn (Blog)
+    url: https://www.alexfinn.ai/
+    type: site
+
+  # Substacks
+  - name: Regy Perlera
+    url: https://regyperlera.substack.com/
+    type: substack
+
+  - name: Erik J. Larson
+    url: https://erikjlarson.substack.com/
+    type: substack
+
+  - name: Gary Marcus
+    url: https://garymarcus.substack.com/
+    type: substack
+
+  - name: Zara Zhang
+    url: https://zarazhang.substack.com/
+    type: substack
+
+  - name: RSS DS+AI Section
+    url: https://rssdsaisection.substack.com/
+    type: substack
+
+  # Newsletters (RSS available)
+  - name: Ethan Mollick – One Useful Thing
+    url: https://www.oneusefulthing.org/
+    type: substack
+
+  - name: DeepLearning.AI – The Batch
+    url: https://www.deeplearning.ai/the-batch/
+    type: site
+    html_fallback_url: https://www.deeplearning.ai/the-batch/
+
+  - name: Aakash Gupta
+    url: https://www.news.aakashg.com/
+    type: substack
+
+  - name: AI Hero
+    url: https://www.aihero.dev/newsletter
+    type: site
+    feed_url: https://www.aihero.dev/rss.xml
+
+  - name: AI Supremacy
+    url: https://www.ai-supremacy.com/
+    type: substack
+
+  - name: Scott Galloway – No Mercy No Malice
+    url: https://profgmedia.com/no-mercy-no-malice/
+    type: site
+
+  # Medium
+  - name: Ross W. Green
+    url: https://medium.com/@Ross_W_Green
+    type: medium
+
+  - name: GoPubby AI
+    url: https://ai.gopubby.com/
+    type: medium
+    feed_url: https://ai.gopubby.com/feed
+
+  # Research & Institutions
+  - name: Google Research Blog
+    url: https://research.google/blog/
+    type: site
+
+  - name: MIT News – AI
+    url: https://news.mit.edu/topic/artificial-intelligence
+    type: site
+    feed_url: https://news.mit.edu/rss/topic/artificial-intelligence2
+
+  - name: Startup Archive
+    url: https://www.startuparchive.org/
+    type: site
+
+  - name: Founders Tribune
+    url: https://www.founderstribune.org/
+    type: site
+    html_fallback_url: https://www.founderstribune.org/
+
+  # YouTube Channels
+  - name: Underfitted (Santiago)
+    url: https://www.youtube.com/@underfitted
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCgLxmJ8xER7Y7sywMN5SfWg
+
+  - name: Sabrina Ramonov (YouTube)
+    url: https://www.youtube.com/@sabrina_ramonov
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCiGWNa6QK6CiKPvv5-YPv8g
+
+  - name: Alex Finn (YouTube)
+    url: https://www.youtube.com/@AlexFinnOfficial
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCfQNB91qRP_5ILeu_S_bSkg
+
+  - name: Acquired
+    url: https://www.youtube.com/@AcquiredFM
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCyFqFYfTW2VoIQKylJ04Rtw
+
+  - name: AI Jason Z
+    url: https://www.youtube.com/@AIJasonZ
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCAnJ6_Zjv7PzVTKtbG8nH8A
+
+  - name: IndyDevDan
+    url: https://www.youtube.com/@indydevdan
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UC_x36zCEGilGpB1m-V4gmjg
+
+  - name: Andrej Karpathy (YouTube)
+    url: https://www.youtube.com/@AndrejKarpathy
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ
+
+  - name: Dwarkesh Patel
+    url: https://www.youtube.com/@DwarkeshPatel
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCXl4i9dYBrFOabk0xGmbkRA
+
+  - name: Ryan L. Peterman
+    url: https://www.youtube.com/@ryanlpeterman
+    type: youtube
+    feed_url: https://www.youtube.com/feeds/videos.xml?channel_id=UCzB7YGrrxDC_POenf86H3_Q

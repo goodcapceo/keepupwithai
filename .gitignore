@@ -1,0 +1,27 @@
+# Environment
+.env
+.env.local
+
+# Database
+data.sqlite
+data.sqlite-journal
+data.sqlite-wal
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Notes (local only)
+notes/
+
+# IDE
+.vscode/
+.idea/
