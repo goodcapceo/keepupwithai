@@ -114,9 +114,47 @@ def render_item(item: sqlite3.Row) -> str:
 
 
 def render_page(items: list[sqlite3.Row]) -> str:
-    """Render the full HTML page."""
+    """Render the full HTML page with items grouped by month."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    items_html = "\n".join(render_item(item) for item in items)
+
+    # Group items by month
+    from itertools import groupby
+
+    def get_month_key(item):
+        """Extract YYYY-MM for grouping."""
+        if not item["published_at"]:
+            return "Unknown"
+        try:
+            dt = datetime.fromisoformat(item["published_at"])
+            return dt.strftime("%Y-%m")
+        except (ValueError, TypeError):
+            return "Unknown"
+
+    def format_month_header(month_key):
+        """Format month key as 'February 2026'."""
+        if month_key == "Unknown":
+            return "Unknown Date"
+        try:
+            dt = datetime.strptime(month_key, "%Y-%m")
+            return dt.strftime("%B %Y")
+        except ValueError:
+            return month_key
+
+    # Group items (assumes items are already sorted by published_at DESC)
+    grouped_items = []
+    for month_key, group in groupby(items, key=get_month_key):
+        month_header = format_month_header(month_key)
+        month_items = list(group)
+        items_html = "\n".join(render_item(item) for item in month_items)
+        grouped_items.append(f"""
+    <section class="month-group">
+      <h2 class="month-header">{month_header}</h2>
+      <div class="month-items">
+        {items_html}
+      </div>
+    </section>""")
+
+    items_html = "\n".join(grouped_items)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -164,12 +202,27 @@ def render_page(items: list[sqlite3.Row]) -> str:
       color: var(--text-dim);
       font-size: 0.85rem;
     }}
+    .month-group {{
+      margin-bottom: 3rem;
+    }}
+    .month-header {{
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }}
+    .month-items {{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }}
     .item {{
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.25rem;
-      margin-bottom: 1rem;
     }}
     .item-header h2 {{
       font-size: 1.05rem;

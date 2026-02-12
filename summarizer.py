@@ -226,20 +226,20 @@ def main() -> None:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
 
-    # One-time: mark all pre-May 2025 items as skipped
+    # One-time: mark all pre-October 2025 items as skipped
     old_count = conn.execute(
         """UPDATE items SET status = 'skipped'
-           WHERE status = 'new' AND published_at < '2025-05-01'"""
+           WHERE status = 'new' AND published_at < '2025-10-01'"""
     ).rowcount
     conn.commit()
     if old_count > 0:
-        log.info("Marked %d pre-May 2025 items as skipped", old_count)
+        log.info("Marked %d pre-October 2025 items as skipped", old_count)
 
-    # Select new items from May 2025 onward, up to the hard cap
+    # Select new items from October 2025 onward, up to the hard cap
     rows = conn.execute(
         """SELECT id, title, content_text FROM items
            WHERE status = 'new'
-             AND (published_at >= '2025-05-01' OR published_at IS NULL)
+             AND (published_at >= '2025-10-01' OR published_at IS NULL)
            ORDER BY published_at DESC
            LIMIT ?""",
         (MAX_NEW_ITEMS_PER_RUN,),
