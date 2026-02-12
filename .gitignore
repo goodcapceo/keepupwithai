@@ -24,6 +24,7 @@ notes/
 
 # Claude Code configuration (local only)
 CLAUDE.md
+docs/
 
 # IDE
 .vscode/
