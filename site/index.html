@@ -140,8 +140,8 @@
 <body>
   <header>
     <h1>Keep Up With AI</h1>
-    <div class="updated">Last updated: 2026-02-12 16:40 UTC</div>
-    <div class="count">25 summaries</div>
+    <div class="updated">Last updated: 2026-02-12 18:06 UTC</div>
+    <div class="count">50 summaries</div>
   </header>
   <main>
     
@@ -1107,6 +1107,937 @@
           <div class="field unknowns">
             <span class="label">Confidence / Unknowns</span>
             <p>The text doesn&#x27;t explain specific mitigation techniques or cite concrete examples beyond unit test modification, leaving open what solutions exist or how prevalent this is in practice.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2024-07-07-hallucination/" target="_blank" rel="noopener">Extrinsic Hallucinations in LLMs</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jul 07, 2024</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Sometimes AI language models make up fake facts that aren&#x27;t true in the real world. This happens when the AI didn&#x27;t actually learn something during training but pretends it knows anyway. The fix is making AI tell the truth and admit when it doesn&#x27;t know something.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Extrinsic hallucination occurs when LLMs generate false information not grounded in their training data or world knowledge, distinct from in-context hallucination which contradicts provided source material. Preventing it requires two solutions: ensuring outputs are factually accurate and verifiable against real-world knowledge, and training models to explicitly acknowledge knowledge gaps rather than fabricate answers.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>LLM hallucinations undermine trust and reliability in AI systems; controlling extrinsic hallucination specifically is crucial for applications requiring factual accuracy like medical, legal, or scientific domains.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The post distinguishes extrinsic hallucination as a specific problem category requiring different solutions than in-context hallucination, narrowing the general definition of hallucination from any model mistake to specifically fabricated, ungrounded outputs.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"The model output should be factual and verifiable by external world knowledge. Equally importantly, when the model does not know about a fact, it should say so."</li><li>"Hallucination has been somewhat generalized to cases when the model makes mistakes. Here, I would like to narrow down the problem of hallucination to cases where the model output is fabricated and not grounded by either the provided context or world knowledge."</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The text doesn&#x27;t specify practical techniques or recent methods for reducing extrinsic hallucination, limiting understanding of implementation approaches.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2024-04-12-diffusion-video/" target="_blank" rel="noopener">Diffusion Models for Video Generation</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Apr 12, 2024</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Scientists are teaching computers to create videos by learning from lots of examples, similar to how they learned to make pictures, but it&#x27;s harder because videos need frames that look like they flow smoothly together.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Diffusion models, which work well for image synthesis, are now being adapted for video generation—a more complex task requiring temporal consistency across frames and larger, higher-quality training datasets with paired text-video data.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Video generation is a harder AI challenge than image generation with practical applications, and solving it advances our understanding of how AI can generate coherent temporal content.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The research focus has expanded from static image generation using diffusion models to dynamic video generation, introducing new technical challenges around frame consistency and data requirements.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"The task itself is a superset of the image case, since an image is a video of 1 frame, and it is much more challenging"</li><li>"It has extra requirements on temporal consistency across frames in time, which naturally demands more world knowledge to be encoded into the model"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The text is introductory and doesn&#x27;t provide specific model architectures, benchmarks, or recent breakthroughs in video diffusion—it mainly frames the problem.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2024-02-05-human-data-quality/" target="_blank" rel="noopener">Thinking about High-Quality Human Data</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Feb 05, 2024</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Good data is super important for training AI models, kind of like how you need quality ingredients to bake a good cake. People often focus on building fancy models instead of collecting good training data, even though the data quality really matters.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>High-quality human-labeled data is essential for training deep learning models, particularly for classification tasks and RLHF (reinforcement learning from human feedback) used in LLM alignment. While ML techniques can improve data quality, the core challenge is careful execution and attention to detail in human annotation—yet the field tends to prioritize model development over data collection work.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Data quality directly impacts AI model performance; poor training data leads to poor model outputs regardless of model sophistication. Recognizing this gap between perceived importance and actual investment in data work could improve AI development practices.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The post highlights a persistent gap in the ML community: while everyone acknowledges data quality matters, there&#x27;s a cultural bias toward model work over data collection work that hasn&#x27;t shifted significantly.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"High-quality data is the fuel for modern data deep learning model training."</li><li>"Everyone wants to do the model work, not the data work"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The post appears to be an introduction to a longer piece; without seeing the full article, specific techniques and solutions mentioned are unclear.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2023-10-25-adv-attack-llm/" target="_blank" rel="noopener">Adversarial Attacks on LLMs</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Oct 25, 2023</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>People have found ways to trick AI chatbots like ChatGPT into saying bad things, even though the creators tried to train them to be safe. This is harder to do with text than with pictures because text works differently.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Despite safety training (RLHF), large language models remain vulnerable to adversarial attacks and jailbreak prompts that circumvent their alignment. Text-based attacks are more challenging than image attacks because they operate in discrete space without direct gradient signals, making them harder to craft but potentially more dangerous.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>As LLMs are deployed widely, understanding adversarial vulnerabilities is critical for security and responsible AI deployment. Identifying attack vectors helps researchers build more robust defenses.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>With ChatGPT&#x27;s mainstream adoption, the focus has shifted from theoretical adversarial research (primarily on images) to practical attacks on large language models in production.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"adversarial attacks or jailbreak prompts could potentially trigger the model to output something undesired"</li><li>"Attacks for discrete data like text have been considered to be a lot more challenging, due to lack of direct gradient signals"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The article doesn&#x27;t provide specific examples of successful attacks or quantify their frequency/severity in real deployments.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener">LLM Powered Autonomous Agents</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jun 23, 2023</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Scientists are teaching AI to think like a person by giving it a brain (an LLM), a memory, and tools to use. The AI breaks big problems into smaller steps, remembers what it learned, and can ask for help when it needs information it doesn&#x27;t know.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>LLM-powered autonomous agents use large language models as a core controller with three key components: Planning (decomposing tasks into subgoals and self-reflecting), Memory (short-term via in-context learning and long-term via external vector stores), and Tool Use (calling external APIs for real-time data and execution capabilities). This architecture enables LLMs to function as general problem solvers beyond text generation.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>This approach demonstrates how LLMs can move beyond text generation to become autonomous problem-solvers, enabling applications like AutoGPT and BabyAGI that can plan, learn, and adapt without human intervention for each step.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>Previously, LLMs were primarily used for generating text; now they&#x27;re being architected as the core controller of autonomous agent systems with integrated planning, memory, and tool-calling capabilities.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"LLM functions as the agent&#x27;s brain, complemented by several key components: Planning, Memory, and Tool use"</li><li>"The potentiality of LLM extends beyond generating well-written copies, stories, essays and programs; it can be framed as a powerful general problem solver"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The content is introductory and doesn&#x27;t detail specific implementation methods, performance metrics, or limitations of these agent systems.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/" target="_blank" rel="noopener">Prompt Engineering</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Mar 15, 2023</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Prompt engineering is like learning the right way to ask a robot assistant questions so it gives you better answers, without having to rebuild the robot.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Prompt engineering involves crafting specific instructions and input formats to guide large language models toward desired outputs without retraining them. It&#x27;s an empirical field where techniques vary significantly across different models, requiring experimentation to find what works best.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>It allows users to control and improve AI model outputs without expensive retraining, making AI systems more practical and aligned with user intentions.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The post positions prompt engineering as a recognized discipline focused on model alignment and steerability, distinct from other AI techniques like image generation or multimodal approaches.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"methods for how to communicate with LLM to steer its behavior for desired outcomes without updating the model weights"</li><li>"the effect of prompt engineering methods can vary a lot among models, thus requiring heavy experimentation and heuristics"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source is primarily definitional; specific prompt engineering techniques, examples, or practical applications are not detailed in this excerpt.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/" target="_blank" rel="noopener">The Transformer Family Version 2.0</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jan 27, 2023</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Transformers are AI models that process language. Scientists have improved the original design with lots of new ideas, and this guide explains all those improvements in version 2.0.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>This is an updated guide to Transformer architecture improvements made since 2020. It includes mathematical notation for key components (model size, attention heads, weight matrices, query/key/value embeddings) and explains that the original Transformer has an encoder-decoder structure, but simplified versions like BERT and GPT use only one part.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Transformers power modern AI language models like ChatGPT, so understanding their improvements helps researchers build better AI systems.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>This is version 2.0 of a previous post, roughly twice as long, with restructured sections and papers on recent architectural improvements not covered three years ago.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"Version 2.0 is a superset of the old version, about twice the length."</li><li>"Later simplified Transformer was shown to achieve great performance in language modeling tasks, like in encoder-only BERT or decoder-only GPT."</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The excerpt only covers notation and basic overview; actual improvements and technical details are presumably in the full post but not provided here.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2023-01-10-inference-optimization/" target="_blank" rel="noopener">Large Transformer Model Inference Optimization</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jan 10, 2023</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Big AI language models are really powerful but slow and use a lot of computer memory to run. Scientists are working on making them faster and less memory-hungry so more people can actually use them.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Large transformer models achieve state-of-the-art results but have prohibitive inference costs in latency and memory. Two main factors beyond model size contribute to inference challenges, as documented in recent research, making deployment at scale difficult.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Inference optimization is critical for real-world deployment of transformer models; without it, powerful AI models remain impractical for production use despite their superior capabilities.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The article was updated in January 2023 to include a new section on distillation, adding another optimization technique to the discussion of inference efficiency.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source text is incomplete and doesn&#x27;t specify what the two main factors are, limiting the depth of summary possible.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2022-09-08-ntk/" target="_blank" rel="noopener">Some Math behind Neural Tangent Kernel</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Sep 08, 2022</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Neural networks are really good at learning even when they have way more knobs to turn than examples to learn from. Scientists discovered something called Neural Tangent Kernel that helps explain why this works—it&#x27;s like a mathematical cheat code showing that wide networks will reliably find good solutions during training.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Neural Tangent Kernel (NTK) is a mathematical framework that explains how neural networks evolve during gradient descent training. It proves that sufficiently wide neural networks will converge to global minima regardless of random initialization, accounting for over-parameterization and generalization despite having more parameters than training samples.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Understanding NTK provides theoretical foundation for why deep learning works in practice and explains the paradox of over-parameterized models generalizing well, which is crucial for advancing neural network theory.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>NTK introduced a kernel-based perspective (Jacot et al. 2018) to analyze neural network training dynamics, shifting from purely empirical understanding to rigorous mathematical guarantees about convergence behavior.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"Neural networks are well known to be over-parameterized and can often easily fit data with near-zero training loss with decent generalization performance"</li><li>"why neural networks with enough width can consistently converge to a global minimum when trained to minimize an empirical loss"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The content is an abstract/introduction and doesn&#x27;t provide specific mathematical details, proofs, or concrete examples of NTK applications.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2022-06-09-vlm/" target="_blank" rel="noopener">Generalized Visual Language Models</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jun 09, 2022</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Scientists are teaching computer language models (which work with words) to also understand pictures by feeding them visual information, so they can answer questions about images or describe what they see.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Rather than building separate vision and text systems, researchers are extending pre-trained language models to directly process visual signals alongside text, enabling tasks like image captioning and visual question-answering without traditional object detection pipelines.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>This unified approach could be more efficient and flexible than traditional separate vision-text systems, potentially enabling better multimodal AI that understands both images and language together.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The shift from separate vision encoders (object detection networks) feeding into text decoders toward generalized language models that natively consume visual signals.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The excerpt doesn&#x27;t provide concrete examples of specific models, performance improvements, or implementation details needed to fully assess this approach.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2022-04-15-data-gen/" target="_blank" rel="noopener">Learning with not Enough Data Part 3: Data Generation</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Apr 15, 2022</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>When you don&#x27;t have enough data to train AI, you can either tweak your existing examples (like rotating images or rewording sentences) to create more training data, or use powerful AI models to generate completely new fake data.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>This article discusses two strategies for low-data machine learning: data augmentation (applying transformations like text paraphrasing or image distortions to existing samples while preserving meaning) and synthetic data generation (using pretrained language models and few-shot prompting to create new training examples).</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Training AI models typically requires large datasets, but data augmentation and generation techniques enable effective learning with limited real data—crucial for niche domains, privacy-sensitive applications, or resource-constrained scenarios.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>Recent advances in large pretrained language models have made synthetic data generation more practical and effective, offering a powerful alternative to traditional augmentation methods.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"The goal of data augmentation is to modify the input format (e.g. text wording, visual appearance) while the semantic meaning stays unchanged."</li><li>"Few shot prompting is shown to be effective for LM to learn within context without extra training."</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The article is a brief overview; specifics about which augmentation techniques work best for different domains and quantitative comparisons between augmentation and generation approaches are not detailed.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2022-02-20-active-learning/" target="_blank" rel="noopener">Learning with not Enough Data Part 2: Active Learning</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Feb 20, 2022</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>When you don&#x27;t have enough labeled examples to teach a computer, you can ask humans to label only the most important examples instead of all of them, saving time and money.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Active learning strategically selects which unlabeled data points should be manually labeled by humans within a constrained budget, focusing on samples most likely to improve model performance rather than labeling randomly.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Active learning reduces labeling costs and time while maintaining model quality—essential when creating labeled datasets is expensive or difficult.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>Unlike part 1 (which presumably covered learning with limited data alone), this approach adds human feedback but uses intelligent selection to minimize the labeling burden.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"we need to be smart when selecting which samples to label"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The content doesn&#x27;t specify which active learning strategies are covered or provide concrete examples of selection methods.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2021-12-05-semi-supervised/" target="_blank" rel="noopener">Learning with not Enough Data Part 1: Semi-Supervised Learning</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Dec 05, 2021</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>When you don&#x27;t have enough labeled examples to teach an AI, you can use tricks like learning from unlabeled data or borrowing knowledge from similar tasks to make your AI smarter anyway.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Semi-supervised learning addresses the scarcity of labeled training data by leveraging unlabeled data alongside limited labeled examples, using techniques that combine supervised and unsupervised learning to improve model performance.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Real-world labeled data is expensive and time-consuming to create, so techniques that work with mostly unlabeled data make AI systems more practical and cost-effective to deploy.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>Semi-supervised learning represents a shift from traditional supervised learning that requires extensive labeled datasets to hybrid approaches that maximize value from limited annotations.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The article mentions four approaches but doesn&#x27;t detail them—the content provided is introductory and lacks specifics about which techniques are covered.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2021-09-25-train-large/" target="_blank" rel="noopener">How to Train Really Large Models on Many GPUs?</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Sep 24, 2021</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>When AI models get really big, you need many computers working together to train them. This article explains tricks to make that teamwork faster and more efficient.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>The article discusses advanced techniques for distributed training of large neural networks across multiple GPUs, including expert choice routing and other optimization strategies for parallel computation.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Training massive AI models requires coordinating hundreds of GPUs efficiently; these techniques enable faster development of state-of-the-art AI systems.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The post was updated with expert choice routing methods and condensed into an upgraded version published on OpenAI&#x27;s official blog.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The actual content and specific techniques aren&#x27;t provided in the source material, making it impossible to summarize the detailed methods or evaluate their effectiveness.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/" target="_blank" rel="noopener">What are Diffusion Models?</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jul 11, 2021</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Diffusion models are AI tools that create images by starting with noise and gradually cleaning it up, like slowly turning a fuzzy picture into a clear one.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Diffusion models generate data (usually images) through a two-stage process: adding random noise to data, then training a neural network to reverse that noise step-by-step, enabling the model to create new samples by reversing the noise process.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Diffusion models have become a foundational technique in generative AI, powering popular image generation systems like DALL-E, Imagen, and Stable Diffusion.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The article was updated multiple times with new techniques including classifier-free guidance, latent diffusion models, consistency models, and progressive distillation, showing rapid evolution in the field.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source text only shows update timestamps and titles without actual explanatory content, so detailed technical understanding and specific mechanisms are not available from this excerpt.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2021-05-31-contrastive/" target="_blank" rel="noopener">Contrastive Representation Learning</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">May 31, 2021</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Contrastive learning teaches computers to recognize similarities by pulling similar things close together and pushing different things apart in a mental &#x27;map&#x27; of data.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Contrastive representation learning creates embedding spaces where similar data points cluster nearby while dissimilar ones are distant. It works in both supervised and unsupervised contexts, and is particularly powerful for self-supervised learning without labeled data.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>This technique enables AI models to learn meaningful patterns from unlabeled data, making it fundamental for practical machine learning where labels are expensive or unavailable.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>Contrastive learning represents a major shift toward self-supervised approaches, reducing reliance on hand-labeled datasets which traditionally limited AI development.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"Similar sample pairs stay close to each other while dissimilar ones are far apart"</li><li>"One of the most powerful approaches in self-supervised learning"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source provides conceptual overview but lacks specific methods, applications, or mathematical details needed for full understanding of implementation.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2021-03-21-lm-toxicity/" target="_blank" rel="noopener">Reducing Toxicity in Language Models</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Mar 21, 2021</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Big AI language models learn from internet data that sometimes contains mean or unfair stuff, so researchers are working on ways to make sure these AI assistants don&#x27;t say harmful things when we use them.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Large language models trained on internet data absorb toxic behaviors and biases from that data. While these models are powerful and effective for NLP tasks, deploying them safely in real applications requires implementing safety controls to prevent harmful outputs.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>As language models become more widely used in real-world applications, preventing them from generating toxic or biased content is critical for user safety and responsible AI deployment.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The emphasis has shifted from just building powerful models to also ensuring those models have safety mechanisms that prevent harmful outputs during use.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"They unavoidably acquire certain toxic behavior and biases from the Internet."</li><li>"To safely deploy them for practical real-world applications demands a strong safety control over the model generation process."</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source doesn&#x27;t detail specific techniques for reducing toxicity or provide results/examples of implemented solutions.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2021-01-02-controllable-text-generation/" target="_blank" rel="noopener">Controllable Neural Text Generation</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jan 02, 2021</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>This is a guide about teaching AI to write text the way we want it to. Instead of letting AI write whatever it wants, we can control things like style, tone, and topic.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Controllable neural text generation covers techniques to steer language models toward specific outputs—using prompts, fine-tuning, constraints, and training methods like unlikelihood training and prompt tuning to control attributes like sentiment, length, and style.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Controlling AI text generation is crucial for safe, practical applications where you need reliable outputs in a specific tone, format, or subject matter rather than unpredictable or harmful text.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The document was updated multiple times (Feb 2021, May 2021, Sept 2021) adding new techniques like P-tuning, Prompt Tuning, and unlikelihood training to the controllable generation toolkit.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source is a brief update log rather than full content, so specific methods and examples aren&#x27;t detailed here.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2020-10-29-odqa/" target="_blank" rel="noopener">How to Build an Open-Domain Question Answering System?</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Oct 29, 2020</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>It&#x27;s about teaching computers to answer any factual question, like a smart assistant that reads books in its brain and finds the answer to your question.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>The article reviews methods for building systems that answer open-domain factual questions without restricting to specific topics, enabling applications like AI chatbots and assistants.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Open-domain QA systems power practical AI assistants and chatbots that can handle diverse questions; this is foundational technology for customer service, search, and intelligent interfaces.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The article was updated in 2020 to include an example using OpenAI&#x27;s API, reflecting the shift toward leveraging large pre-trained language models for QA tasks.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The actual content detailing the specific approaches is not provided, so specific technical methods and their implementations cannot be evaluated.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2020-08-06-nas/" target="_blank" rel="noopener">Neural Architecture Search</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Aug 06, 2020</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Instead of humans manually designing AI networks, we can use computers to automatically search through and test many different network designs to find better ones.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Neural Architecture Search (NAS) is an automated method that systematically explores the space of possible neural network designs to discover architectures that perform better than those designed by human experts, rather than relying solely on manual design.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>NAS could unlock better AI models by exploring design possibilities humans might miss, leading to more efficient and powerful neural networks for various applications.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>Shifts from the traditional paradigm of expert-driven architecture design to automated, data-driven discovery of optimal network structures.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"Most popular and successful model architectures are designed by human experts, it doesn&#x27;t mean we have explored the entire network architecture space"</li><li>"We would have a better chance to find the optimal solution if we adopt a systematic and automatic way of learning high-performance model architectures"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The text is introductory and doesn&#x27;t explain specific NAS methods, algorithms, or concrete examples of successful applications.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2020-06-07-exploration-drl/" target="_blank" rel="noopener">Exploration Strategies in Deep Reinforcement Learning</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jun 07, 2020</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Reinforcement learning agents need to decide between trying new things (exploration) and using what they already know works (exploitation). Finding the right balance is tricky—explore too little and you miss better solutions, explore too much and you waste time.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>In RL, the exploration-exploitation tradeoff is fundamental: agents must balance discovering new strategies against exploiting known good ones. Modern algorithms handle exploitation well, but exploration strategies remain an active research challenge, with techniques like &#x27;exploration via disagreement&#x27; being developed to improve discovery efficiency.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Better exploration strategies make AI agents learn faster and find superior solutions in complex problems, with applications across robotics, games, and autonomous systems.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The article was updated in June 2020 to include &#x27;exploration via disagreement&#x27; methods, indicating new forward dynamics approaches to solving the exploration problem.</p>
+          </div>
+            <div class="field">
+              <span class="label">Key Quotes</span>
+              <ul class="quotes"><li>"committing to solutions too quickly without enough exploration sounds pretty bad, as it could lead to local minima or total failure"</li><li>"Modern RL algorithms that optimize for the best returns can achieve good exploitation quite efficiently, while exploration remains more like an open topic"</li></ul>
+            </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The excerpt is incomplete and doesn&#x27;t detail specific exploration strategies or mechanisms, only introducing the problem; full content needed for comprehensive understanding.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/" target="_blank" rel="noopener">The Transformer Family</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Apr 07, 2020</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>This is a guide about Transformers, a type of AI technology that helps computers understand and work with language. The original post was updated in 2023 to include new versions and improvements made over three years.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>The post documents the Transformer architecture family, a foundational deep learning technique introduced around 2017 for natural language processing. It was significantly updated in January 2023 to incorporate new Transformer variants and models developed between 2020-2023, with the expanded version available separately.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Transformers power modern AI systems like ChatGPT and BERT, so understanding their evolution and different variants is crucial for anyone working in AI, machine learning, or NLP.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The original post was comprehensively refactored after three years to include newly developed Transformer models and improvements that emerged since the initial publication.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source text is just a header/redirect notice with no actual content about Transformer models, architectures, or specifics—the substantive information exists only in the linked Version 2.0 post.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2020-01-29-curriculum-rl/" target="_blank" rel="noopener">Curriculum for Reinforcement Learning</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Jan 29, 2020</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>A curriculum is like a school lesson plan for teaching robots to learn. You start with easy tasks and gradually make them harder, so the robot learns better than if you threw hard problems at it all at once.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Curriculum learning for reinforcement learning involves structuring training by gradually increasing task difficulty or complexity. The content covers task-specific curriculum approaches and curriculum through distillation as methods to improve agent learning efficiency and performance.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Better training methods help AI agents learn faster and more effectively, which improves their performance on complex tasks and makes training computationally more efficient.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The document was updated to include Procedural Content Generation (PCG) in task-specific curriculum strategies and added a new section on curriculum through distillation as a learning method.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The provided text is only a header/update log with no actual content explaining the curriculum concepts, making it impossible to extract meaningful quotes or fully assess technical details.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2019-11-10-self-supervised/" target="_blank" rel="noopener">Self-Supervised Representation Learning</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Nov 10, 2019</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Computers can learn to understand patterns in pictures or data without being told what they&#x27;re looking at—like learning to recognize shapes just by looking at many examples without labels.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Self-supervised representation learning trains AI models to extract meaningful features from unlabeled data by creating learning tasks from the data itself (like predicting missing parts), reducing the need for expensive hand-labeled datasets.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>This approach makes AI training more practical and scalable since labeling data is expensive and time-consuming; models can learn from raw, unlabeled data at scale.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The field evolved from basic methods to more sophisticated approaches like contrastive learning (CPC, MoCo, SimCLR, BYOL) and bisimulation-based methods that improved learning efficiency and representation quality.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The source is mostly update logs without detailed explanations of methods or results, so specific technical details and practical applications remain unclear.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="item">
+      <div class="item-header">
+        <h2><a href="https://lilianweng.github.io/posts/2019-09-05-evolution-strategies/" target="_blank" rel="noopener">Evolution Strategies</a></h2>
+        <div class="meta">
+          <span class="source">Lilian Weng</span>
+          <span class="date">Sep 05, 2019</span>
+        </div>
+      </div>
+      <div class="eli5">
+        <span class="label">ELI5</span>
+        <p>Instead of using the most common method (stochastic gradient descent) to train AI models, you can use other techniques that work even when you can&#x27;t see inside the math. These techniques are like trying different solutions and keeping the best ones, similar to how you might guess a combination lock by trying different numbers.</p>
+      </div>
+      <details>
+        <summary>More details</summary>
+        <div class="expanded">
+          <div class="field">
+            <span class="label">ELI16</span>
+            <p>Evolution Strategies are black-box optimization algorithms that optimize functions without requiring gradient information. Unlike SGD which uses derivatives, black-box methods like Simulated Annealing, Hill Climbing, and Nelder-Mead only need to evaluate the function&#x27;s output, making them useful when analytical gradients are unavailable or expensive to compute.</p>
+          </div>
+          <div class="field">
+            <span class="label">Why This Matters</span>
+            <p>Evolution Strategies enable optimization in scenarios where gradients are difficult or impossible to compute, expanding the toolkit beyond standard deep learning methods for more diverse optimization problems.</p>
+          </div>
+          <div class="field">
+            <span class="label">What Changed</span>
+            <p>The article presents black-box optimization as an alternative to the dominant stochastic gradient descent paradigm, highlighting other viable approaches for model training.</p>
+          </div>
+          <div class="field unknowns">
+            <span class="label">Confidence / Unknowns</span>
+            <p>The content is an introductory overview; specifics about why and when to use Evolution Strategies over other methods, their computational costs, and performance comparisons are not provided.</p>
           </div>
         </div>
       </details>
