@@ -22,6 +22,9 @@ Thumbs.db
 # Notes (local only)
 notes/
 
+# Claude Code configuration (local only)
+CLAUDE.md
+
 # IDE
 .vscode/
 .idea/
