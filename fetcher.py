@@ -14,6 +14,7 @@ import sqlite3
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 import feedparser
 import requests
@@ -95,13 +96,38 @@ SESSION.headers.update({
     ),
 })
 
+# Track domains that fail with non-retryable errors (DNS, connection refused)
+# so we skip all subsequent URLs on the same domain within this run.
+_failed_domains: set[str] = set()
+
+
+def _get_domain(url: str) -> str:
+    return urlparse(url).netloc.lower()
+
+
+def _is_non_retryable_error(exc: requests.RequestException) -> bool:
+    """Check if the error is non-retryable (DNS failure, connection refused)."""
+    cause = exc.__cause__ or exc
+    name = type(cause).__name__
+    # Walk the exception chain for wrapped errors (urllib3 → socket)
+    while hasattr(cause, "__cause__") and cause.__cause__:
+        cause = cause.__cause__
+        name = type(cause).__name__
+    # DNS resolution failures, connection refused, etc.
+    return any(k in name for k in ("NameResolution", "gaierror", "ConnectionRefused"))
+
 
 def fetch_with_backoff(url: str, **kwargs) -> requests.Response | None:
     """GET with exponential backoff. Returns None on total failure.
 
-    Does not retry on 4xx errors (except 429 rate limit) since those are
-    definitive responses. Only retries on network errors, timeouts, and 5xx.
+    Does not retry on: 4xx (except 429), DNS failures, connection refused.
+    Only retries on: timeouts, 5xx, and transient network errors.
     """
+    domain = _get_domain(url)
+    if domain in _failed_domains:
+        log.info("  Skipping %s (domain previously failed)", url)
+        return None
+
     kwargs.setdefault("timeout", REQUEST_TIMEOUT)
     for attempt in range(MAX_RETRIES):
         try:
@@ -114,6 +140,18 @@ def fetch_with_backoff(url: str, **kwargs) -> requests.Response | None:
                 return None
             resp.raise_for_status()
             return resp
+        except requests.ConnectionError as e:
+            if _is_non_retryable_error(e):
+                _failed_domains.add(domain)
+                log.warning("%s failed (non-retryable: %s) — domain blacklisted for this run",
+                            url, type(e.__cause__ or e).__name__)
+                return None
+            # Other ConnectionErrors (reset, broken pipe) are retryable
+            wait = BACKOFF_BASE ** attempt
+            log.warning("Attempt %d/%d for %s failed: %s (retry in %ds)",
+                        attempt + 1, MAX_RETRIES, url, e, wait)
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(wait)
         except requests.RequestException as e:
             wait = BACKOFF_BASE ** attempt
             log.warning("Attempt %d/%d for %s failed: %s (retry in %ds)",
@@ -121,6 +159,7 @@ def fetch_with_backoff(url: str, **kwargs) -> requests.Response | None:
             if attempt < MAX_RETRIES - 1:
                 time.sleep(wait)
     log.error("All %d attempts failed for %s", MAX_RETRIES, url)
+    _failed_domains.add(domain)  # also blacklist after exhausting retries (e.g. timeouts)
     return None
 
 
@@ -181,8 +220,9 @@ def _discover_site_feed(url: str) -> str | None:
                 href = url + "/" + href
             return href
 
-    # Probe common paths
-    for path in ["/feed", "/rss", "/rss.xml", "/atom.xml", "/feed.xml", "/index.xml"]:
+    # Probe common paths (including nested /feed/ variants for static-site generators)
+    for path in ["/feed", "/rss", "/rss.xml", "/atom.xml", "/feed.xml", "/index.xml",
+                 "/feed/feed.xml", "/feed/atom.xml", "/feed/index.xml"]:
         probe_url = url + path
         probe = fetch_with_backoff(probe_url)
         if probe and probe.status_code == 200:

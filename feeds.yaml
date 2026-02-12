@@ -43,10 +43,12 @@ sources:
   - name: Social Growth Engineers
     url: https://www.socialgrowthengineers.com/
     type: site
+    html_fallback_url: https://www.socialgrowthengineers.com/blog
 
   - name: Thariq
     url: https://www.thariq.io/
     type: site
+    html_fallback_url: https://www.thariq.io/blog
 
   - name: Alex Finn (Blog)
     url: https://www.alexfinn.ai/
@@ -99,6 +101,7 @@ sources:
   - name: Scott Galloway – No Mercy No Malice
     url: https://profgmedia.com/no-mercy-no-malice/
     type: site
+    html_fallback_url: https://profgmedia.com/no-mercy-no-malice/
 
   # Medium
   - name: Ross W. Green
@@ -123,6 +126,7 @@ sources:
   - name: Startup Archive
     url: https://www.startuparchive.org/
     type: site
+    html_fallback_url: https://www.startuparchive.org/
 
   - name: Founders Tribune
     url: https://www.founderstribune.org/
