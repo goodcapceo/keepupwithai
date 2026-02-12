@@ -26,6 +26,12 @@ notes/
 CLAUDE.md
 docs/
 
+# One-time scripts (local only)
+setup_youtube.py
+
+# Generated output (auto-created by workflow)
+site/
+
 # IDE
 .vscode/
 .idea/
